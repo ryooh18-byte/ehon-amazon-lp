@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ChatGPT・画像生成AI・Canva・Amazon KDPを使って、AI絵本を作成・販売するためのステップガイドです。">
+    <title>AI絵本販売 完全ガイド｜くみ</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fff3f9'/%3E%3Cpath d='M13 17c8-3 14-2 19 3v31c-5-5-11-6-19-3V17Zm38 0c-8-3-14-2-19 3v31c5-5 11-6 19-3V17Z' fill='%23d95a93'/%3E%3Cpath d='M32 20v31' stroke='%238462c8' stroke-width='3'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="page-icon" aria-hidden="true">📚</div>
+        <h1>AI絵本販売 完全ガイド</h1>
+
+        <p class="lead">こんにちは。50代・独身・介護職のくみです。</p>
+
+        <figure>
+          <a class="visual-link" href="https://redirect-app-brown-psi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="特典を受け取る">
+            <img class="cta-image" src="https://inquisitive-link-d37.notion.site/image/attachment%3Ab56f6463-484b-420f-a7d4-943a82e656aa%3A4e861798-abb6-4096-b212-e8630c5bbc94.png?table=block&amp;id=403108a4-4a1d-4ec0-ad46-90b9cae8cbca&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIマネタイズの教科書 5大特典無料プレゼント">
+          </a>
+        </figure>
+        <p class="caption">タップで受け取れます👆</p>
+
+        <div class="section">
+          <p class="thanks">この特典を受け取ってくださり、<br><strong>本当にありがとうございます。</strong></p>
+          <p class="profile-copy">54歳からAIを学び始めた経験をもとに、<br>パソコンが苦手な50代女性へ、<br><strong>AIで副収入を得るための方法</strong>を<br>分かりやすく発信しています✨</p>
+        </div>
+      </header>
+
+      <div class="callout feature-callout">
+        <span class="symbol" aria-hidden="true">📖</span>
+        <p>ChatGPT・画像生成AI・Canva・Amazon KDPを使って、AI絵本を作成・販売するためのステップバイステップガイドです。</p>
+        <p>パソコンやAIが得意でなくても、一つずつ順番に進めながら、AI絵本販売に挑戦できます✨</p>
+      </div>
+
+      <section class="section">
+        <h2>📚 AI絵本販売とは</h2>
+        <p>AI絵本販売とは、ChatGPTで物語・イラストを作成し、Amazonで絵本として販売する方法です。</p>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A00830d8d-618b-4282-9157-7bf906a9a556%3A3ee170f5-9893-4ce5-af42-3b88e54807c3.png?table=block&amp;id=68d8a038-811e-41b6-b4ff-dce30e95ed74&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AI絵本販売のイメージ">
+        </figure>
+        <ul class="bullets">
+          <li>絵本のシナリオ作成にChatGPTを使える</li>
+          <li>イラストが描けなくても、画像生成AIで絵本風の画像を作れる</li>
+          <li>Canvaで文章と画像を配置して、絵本データを作れる</li>
+          <li>Amazon KDPを使えば、在庫を持たずに出版・販売できる</li>
+        </ul>
+        <div class="callout">
+          <span class="symbol" aria-hidden="true">🎀</span>
+          <p>印刷や発送はAmazon側で対応してくれるため、在庫リスクを抑えて始めやすいのがポイントです。</p>
+        </div>
+      </section>
+
+      <section class="section overview-section">
+        <h2>🌷 全体の流れは簡単3ステップ</h2>
+        <ol class="steps">
+          <li>ChatGPTで絵本のシナリオを作る</li>
+          <li>画像生成AIでシーンごとのイラストを作る</li>
+          <li>Canvaで絵本データを作り、Amazonで販売する</li>
+        </ol>
+        <div class="callout purple">
+          <span class="symbol" aria-hidden="true">💡</span>
+          <p>最初から完璧な絵本を作ろうとしなくて大丈夫です。まずは短めの絵本を1冊作って、販売までの流れを体験してみましょう。</p>
+        </div>
+      </section>
+
+      <section class="section step-section">
+        <h2>🤖 ステップ1：ChatGPTで絵本シナリオを作る</h2>
+        <p>まずは、ChatGPTにキャラクター設定、全14見開きのシナリオ、タイトル案を作ってもらいます。</p>
+        <p class="prompt-intro">「◯◯」の部分を自分の内容に書き換えて使ってください。</p>
+        <div class="prompt-tool">
+          <button class="copy-button" type="button" data-copy-target="story-prompt" aria-live="polite">
+            <span class="copy-label">プロンプトをコピー</span>
+          </button>
+          <details class="prompt-details">
+            <summary>プロンプトの内容を見る</summary>
+            <pre id="story-prompt" class="code-block">あなたは子どもたちの心を掴む、プロの絵本作家です。
+以下の条件をもとに、絵本シナリオを1冊分作成してください。
+
+【入力情報】
+・テーマ：◯◯
+・登場人物：◯◯（性格や特徴も一言ずつ）
+・込める想い：◯◯（なぜこのテーマを書きたいのか、実体験があれば含める）
+・対象年齢：◯◯（以下いずれかを選択）
+　- 2〜3歳向け：短文のくり返し中心。擬音語多め。単純な驚きのギミック。
+　- 4〜5歳向け：簡単なストーリー展開OK。感情の名前（うれしい／こわい等）を教える要素を含む。
+　- 6歳向け：因果関係のあるプロット。簡単な伏線やくり返しのひねりも可。
+・使用シーン：◯◯（例：寝る前の読み聞かせ／保育園での読み聞かせ／自力読み練習用）
+
+【構成ルール】
+1. ページ数：全14見開き（28ページ相当）で構成する。
+2. 各見開きに以下を記載する。
+　- 絵の構図（キャラの配置・表情・色調のイメージ）
+　- 本文（読み聞かせ用のセリフ・地の文）
+3. 文体：対象年齢に合わせた、声に出して読んだときに心地よいリズムの言葉を選ぶ。文字数のリズムや言いにくい言葉の排除を意識する。
+4. 物語全体を通して3回以上くり返す「合言葉フレーズ」を1つ設定する。
+5. 各見開きに擬音語・擬態語を最低1つ使用する。
+6. 構成は以下の波型構造で展開する：
+　①日常紹介 → ②小さな出来事・欲求の発生 → ③くり返しの試み（3回、少しずつ変化をつける） → ④変化・気づき → ⑤あたたかい余韻
+7. 物語のどこか1箇所に、感情が最も動く「ピークシーン」を意図的に配置し、明示する。
+8. 各見開きの最後に「次のページをめくりたくなる引き」を作る。
+9. 全体の中で1見開き、絵を大きく見せる「見せ場ページ」を指定する。
+10. 読み聞かせ中に子どもが声を出したり、動作を真似できる「参加型の仕掛け」を最低1つ入れる。
+11. 教訓や「〜が大切だね」という直接的な説教は入れず、行動と結果だけで感じさせる。
+12. 同テーマの既存絵本にありがちな展開を避け、オチや視点に一つひねりを加える。
+13. 最後の見開きには、子どもだけでなく読み聞かせる大人もあたたかい気持ちになれる一文を入れる。
+
+【出力構成】
+■キャラクター設定シート
+（名前・見た目の特徴・性格・口癖などを詳細に記載）
+
+■絵本シナリオ（全14見開き）
+（見開きごとに「絵の構図」「本文」を記載）
+
+■タイトル案（3つ）
+（内容に基づき、短く・響きが良く・子どもの記憶に残るタイトルを3案提示。それぞれ簡単な選定理由も添える）
+※この3案以外に、自分で考えたタイトルを使いたい場合はその旨を伝えてください。</pre>
+          </details>
+        </div>
+        <p>シナリオができたら、3つの候補から使うタイトルを1つ決めます。自分で考えたタイトルを使っても大丈夫です。</p>
+
+        <h3>🌷 テーマ例</h3>
+        <p>迷ったときは、子どもや親が共感しやすいテーマを選ぶのがおすすめです。</p>
+        <ul class="bullets">
+          <li>初めてのおつかい</li>
+          <li>ひとりで眠る夜</li>
+          <li>お友だちとの仲直り</li>
+          <li>苦手な野菜にチャレンジ</li>
+          <li>大切なおもちゃとのお別れ</li>
+          <li>新しい保育園・幼稚園に行く日</li>
+        </ul>
+        <div class="callout green">
+          <span class="symbol" aria-hidden="true">✅</span>
+          <p>「子どもの小さな悩み」×「かわいいキャラクター」×「前向きなメッセージ」にすると、絵本の方向性が決まりやすくなります。</p>
+        </div>
+      </section>
+
+      <section class="section step-section">
+        <h2>🎨 ステップ2：画像生成用の英語プロンプトを作る</h2>
+        <p>シナリオとタイトルが決まったら、表紙と各見開きのイラストを作るための英語プロンプトをChatGPTに作ってもらいます。</p>
+        <p class="prompt-intro">下のボタンでコピーし、シナリオを作った同じチャットに送信してください。</p>
+        <div class="prompt-tool">
+          <button class="copy-button" type="button" data-copy-target="image-prompt" aria-live="polite">
+            <span class="copy-label">プロンプトをコピー</span>
+          </button>
+          <details class="prompt-details">
+            <summary>プロンプトの内容を見る</summary>
+            <pre id="image-prompt" class="code-block">上記で作成したキャラクター設定シートと絵本シナリオ（全14見開き）、および決定したタイトルをもとに、各見開きの挿絵を生成するための画像生成用プロンプトを、英語で作成してください。
+
+【対象】
+・表紙 1枚
+・本編 14見開き分
+合計15種類のプロンプトを出力してください。
+
+【アートスタイルについて】
+対象年齢（◯◯歳向け）に最も適した絵本のアートスタイルを、あなたのプロ絵本作家としての判断で選び、15個すべてのプロンプトに統一して適用してください。
+（例：水彩タッチ、切り絵風、やわらかいクレヨン調 等、年齢層に合った表現を自動選定）
+
+【各プロンプトの構成ルール】
+1. 冒頭に、選定したアートスタイルの指定を毎回同じ文言で入れる。
+2. 続けて、キャラクターの外見情報（体の色・形・服・特徴的なアイテムなど）を毎回フルで同じ文言で入れる（絵柄・キャラの一貫性を保つため）。
+3. その見開き固有の情報として、構図・キャラのポーズ・表情・背景・シーンの状況を記載する。
+4. 文字やテキストを画像内に含めないよう指定する（negative prompt相当の指定）。
+5. 縦横比は絵本に適した比率（正方形または横長）を指定する。
+6. 表紙用プロンプトには、タイトルロゴが後から載せられるよう、上部または下部に余白スペースを作る指定を入れる。
+
+【出力形式】
+「表紙」「1見開き目」「2見開き目」…「14見開き目」の見出しをつけ、それぞれの直後に画像生成用プロンプト（英語）をコードブロックで記載してください。</pre>
+          </details>
+        </div>
+        <div class="callout">
+          <span class="symbol" aria-hidden="true">🎀</span>
+          <p>画像内に文字を入れると崩れやすいので、文章はCanvaであとから入れるのがおすすめです。</p>
+        </div>
+
+        <h3>🌷 画像生成プロンプトの例</h3>
+        <pre class="code-block">A cute timid gray kitten wearing a tiny yellow scarf, standing in front of a small cozy bakery for the first time, looking nervous but curious, warm pastel colors, children's picture book illustration style, soft watercolor texture, gentle lighting, simple background, high quality, no text</pre>
+        <div class="callout purple">
+          <span class="symbol" aria-hidden="true">💡</span>
+          <p>キャラクターの特徴は毎回同じ言葉で入れると、絵柄や見た目がブレにくくなります。</p>
+          <p class="small">例：gray kitten、tiny yellow scarf、soft watercolor texture など</p>
+        </div>
+      </section>
+
+      <section class="section step-section">
+        <h2>🖼️ ステップ3：ChatGPTでイラストを作る</h2>
+        <p>ChatGPTに英語プロンプトを1つずつ貼り付けて、表紙と各見開きのイラストを作成します。</p>
+        <ol class="steps">
+          <li>ChatGPTを開く</li>
+          <li>まず、表紙用の英語プロンプトを貼り付ける</li>
+          <li>画像を生成してもらう</li>
+          <li>生成された画像を確認する</li>
+          <li>気に入った画像を保存する</li>
+          <li>1見開き目から14見開き目まで、英語プロンプトを1つずつ貼り付けてくり返す</li>
+        </ol>
+        <div class="callout purple">
+          <span class="symbol" aria-hidden="true">💡</span>
+          <p>作る画像は、表紙1枚と本編14見開き分の合計15枚です。</p>
+          <p>無料プランでは画像生成に利用制限があります。15枚を一度に作れない場合は、時間を置いて続けるか、2日以上に分けて作成してください。まとめて作成したい場合は、有料プランも選択肢です。</p>
+          <p class="small">利用上限は変更される場合があるため、作成時にChatGPTの画面に表示される案内と、<a href="https://chatgpt.com/pricing/" target="_blank" rel="noopener noreferrer">ChatGPT公式のプラン案内</a>をご確認ください。</p>
+        </div>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A9e754354-8fff-483a-b225-ae556f38b370%3Af65bdc1a-e70f-4b64-b037-e4d49a71136a.png?table=block&amp;id=ee061fef-7af2-423d-a5ba-a70620eb86d6&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例1">
+        </figure>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A05623325-1683-4f6c-8c79-0c9e25743347%3Ad79d8246-16b2-4901-b47e-c4bef424dfd2.png?table=block&amp;id=450fc200-4b90-415d-a346-61886d078263&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例2">
+        </figure>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A05e79d65-c728-4f91-9b3b-77f3467e1fe0%3A5fec49ab-34a1-45ce-8eed-5a75738c0b27.png?table=block&amp;id=209d19c8-0a79-42a1-b775-bbd409a14439&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例3">
+        </figure>
+        <div class="callout green">
+          <span class="symbol" aria-hidden="true">✅</span>
+          <p>絵本に使う画像は、テイストがそろっていることが大切です。色味・キャラクター・背景の雰囲気がバラバラになっていないか確認しましょう。</p>
+        </div>
+      </section>
+
+      <section class="section step-section">
+        <h2>💻 ステップ4：Canvaで絵本データを作る</h2>
+        <p>イラストがそろったら、Canvaで文章と画像を配置して絵本データを作ります。</p>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A50fedcfe-c7df-470d-8144-0523b8dfb0d6%3A62892564-5e62-4719-9131-197f7ff4efb2.png?table=block&amp;id=0ab220d0-2154-4974-a658-1e8f078675c8&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Canvaで絵本データを作る画面例">
+        </figure>
+        <ol class="steps">
+          <li>Canvaを開く</li>
+          <li>「絵本」「A4」「正方形」などでデザインを作成</li>
+          <li>画像を見開きごとに配置</li>
+          <li>ChatGPTで作った本文を入れる</li>
+          <li>フォント・余白・文字サイズを整える</li>
+          <li>表紙・裏表紙を作る</li>
+          <li>PDF形式でダウンロードする</li>
+        </ol>
+        <div class="callout">
+          <span class="symbol" aria-hidden="true">✏️</span>
+          <p>文字は大きめがおすすめです。対象年齢に合わせて、1見開きあたりの文章量と、声に出して読んだときのリズムを整えましょう。</p>
+        </div>
+
+        <h3>📘 Canvaで作るときのポイント</h3>
+        <ul class="bullets">
+          <li>表紙はタイトルが一目で読めるようにする</li>
+          <li>本文ページは余白をしっかり取る</li>
+          <li>文字と背景の色が近すぎないようにする</li>
+          <li>ページごとにフォントや色を変えすぎない</li>
+          <li>印刷用PDFで書き出す</li>
+        </ul>
+        <div class="callout purple">
+          <span class="symbol" aria-hidden="true">💡</span>
+          <p>Amazonにアップロードする場合は、サイズ・余白・塗り足しなどの指定があります。作成前に最新ルールを確認しておくと安心です。</p>
+        </div>
+      </section>
+
+      <section class="section step-section">
+        <h2>🛒 ステップ5：Amazonに出品する</h2>
+        <p>絵本データが完成したら、Amazon KDPに登録して販売準備をします。</p>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A6b7adfb5-0dbe-4349-a1f5-c6f2778bade9%3A5381a028-85ca-44b2-bc32-aefc8f54b0ac.png?table=block&amp;id=a132caa8-5e44-460b-b847-042be972b5f1&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Amazon KDPへの出品画面例">
+        </figure>
+        <ol class="steps">
+          <li>Amazon KDPに登録・ログイン</li>
+          <li>「ペーパーバック」または「電子書籍」を選択</li>
+          <li>タイトル・著者名・説明文を入力</li>
+          <li>キーワードとカテゴリーを設定</li>
+          <li>原稿PDFと表紙データをアップロード</li>
+          <li>プレビューで表示崩れを確認</li>
+          <li>販売価格を設定</li>
+          <li>内容を確認して出版申請</li>
+        </ol>
+        <div class="callout">
+          <span class="symbol" aria-hidden="true">🎀</span>
+          <p>Amazon KDPを使うと、注文が入ってから印刷・発送される仕組みを利用できます。自分で在庫を抱えなくていいので、初めての販売にも挑戦しやすいです。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>💡 売れやすくするコツ</h2>
+        <ul class="bullets">
+          <li>親が子どもに読ませたいテーマを選ぶ</li>
+          <li>表紙で「どんな絵本か」が一瞬で伝わるようにする</li>
+          <li>タイトルには検索されやすい言葉を入れる</li>
+          <li>対象年齢を説明文に入れる</li>
+          <li>レビューが多い絵本をリサーチして、表紙・タイトル・テーマの共通点を見る</li>
+          <li>シリーズ化できるキャラクターを作る</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>🔍 リサーチするときの見方</h2>
+        <p>Amazonで似たジャンルの絵本を見つけたら、以下をチェックします。</p>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A00830d8d-618b-4282-9157-7bf906a9a556%3A3ee170f5-9893-4ce5-af42-3b88e54807c3.png?table=block&amp;id=3bf41132-38fb-8098-9495-f781ee1515b4&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Amazonで絵本をリサーチする画面例">
+        </figure>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>見るところ</th><th>チェック内容</th></tr></thead>
+            <tbody>
+              <tr><td>価格</td><td>いくらで販売されているか</td></tr>
+              <tr><td>レビュー数</td><td>どれくらい購入・反応がありそうか</td></tr>
+              <tr><td>表紙</td><td>どんな色・構図・キャラクターか</td></tr>
+              <tr><td>タイトル</td><td>検索されそうな言葉が入っているか</td></tr>
+              <tr><td>説明文</td><td>どんな悩みやニーズに向けているか</td></tr>
+              <tr><td>対象年齢</td><td>何歳向けとして販売しているか</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>❓ うまくいかないときは</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>困ったこと</th><th>対処法</th></tr></thead>
+            <tbody>
+              <tr><td>物語がありきたりになる</td><td>テーマ・キャラクター・伝えたい想いを具体的にする</td></tr>
+              <tr><td>キャラクターの見た目が毎回変わる</td><td>特徴を英語で固定して、毎回同じ表現を入れる</td></tr>
+              <tr><td>画像に文字が入ってしまう</td><td>プロンプトに「no text」を入れる</td></tr>
+              <tr><td>絵柄がバラバラになる</td><td>色味・画風・質感を毎回同じ言葉で指定する</td></tr>
+              <tr><td>Canvaで文字が読みにくい</td><td>背景を少し明るくする／文字に白フチをつける</td></tr>
+              <tr><td>KDPでエラーが出る</td><td>サイズ・余白・塗り足し・PDF形式を見直す</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="callout green">
+          <span class="symbol" aria-hidden="true">🎉</span>
+          <p>AI絵本販売は、文章づくり・画像生成・デザインを組み合わせて挑戦できる副業アイデアのひとつです。</p>
+          <p>まずは短い1冊を作って、Amazonに出品する流れを体験してみましょう✨</p>
+        </div>
+
+        <p class="center"><strong>ここまで読んでくださり、ありがとうございます。</strong></p>
+        <div class="closing-copy">
+          <p>「自分にもできるかな…」<br>「何から始めればいいのかな…」</p>
+          <p><strong>そんな方のために。</strong></p>
+        </div>
+
+        <figure>
+          <a class="visual-link" href="https://redirect-app-brown-psi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="5大特典を無料で受け取る">
+            <img class="cta-image" src="https://inquisitive-link-d37.notion.site/image/attachment%3A350f07dd-c325-46e3-8a13-0fde23e1d3a0%3A8aa4445d-422a-4b4d-836e-33d2829c587c.png?table=block&amp;id=966290c4-9cd3-4f92-bb14-5257cb4faadf&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="期間限定 5大特典無料プレゼント">
+          </a>
+        </figure>
+        <figure>
+          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3Aa53e584e-42b7-453a-9c9e-088c50df7142%3A965ff00c-d9fc-4f18-b4ca-f131062fc684.png?table=block&amp;id=d301e962-2b67-4fc7-8c44-8d7940cd9945&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="無料プレゼント5大特典の内容">
+        </figure>
+        <p class="center">AIで副収入を得ることに興味はあるけれど、何から始めればいいか分からない方へ。<br>まずは一つずつ、一緒に進めてみませんか。</p>
+        <figure>
+          <a class="visual-link" href="https://redirect-app-brown-psi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="特典を受け取る">
+            <img class="cta-image" src="https://inquisitive-link-d37.notion.site/image/attachment%3A4f009168-5f1b-4acf-9e76-c3b61dde2e84%3A1b82d0af-6408-4112-b10a-da6ea61b8394.png?table=block&amp;id=79cfd8d0-e26f-49af-a951-c94f36bc3b41&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="ここをタップで特典を受け取り">
+          </a>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>
