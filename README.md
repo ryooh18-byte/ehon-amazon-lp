@@ -14,6 +14,7 @@ Amazon絵本販売のやりかたを紹介するLP。
 
 ## 公開先URL
 - https://kumi-ai-picture-book-guide.r-k-millie.chatgpt.site/
+- ステータス:現在非公開(使用時に公開へ切り替え)
 
 ## 編集ルール
 - 本文はMarkdownで管理し、Claude Code / Codexどちらで編集してもOK
