@@ -1,83 +1,299 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ChatGPT・画像生成AI・Canva・Amazon KDPを使って、AI絵本を作成・販売するためのステップガイドです。">
-    <title>AI絵本販売 完全ガイド｜くみ</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fff3f9'/%3E%3Cpath d='M13 17c8-3 14-2 19 3v31c-5-5-11-6-19-3V17Zm38 0c-8-3-14-2-19 3v31c5-5 11-6 19-3V17Z' fill='%23d95a93'/%3E%3Cpath d='M32 20v31' stroke='%238462c8' stroke-width='3'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
-  </head>
-  <body>
-    <main class="page">
-      <header>
-        <div class="page-icon" aria-hidden="true">📚</div>
-        <h1>AI絵本販売 完全ガイド</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI絵本販売 完全ガイド｜くみ</title>
+  <meta name="description" content="ChatGPT・画像生成AI・Canva・Amazon KDPを使って、AI絵本を作成・販売するためのステップガイドです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23445348'/%3E%3Cpath d='M18 42c10-2 18-10 20-24 7 10 7 22-1 29-6 5-14 4-19-5Z' fill='%23fffaf2'/%3E%3Cpath d='M19 43c7-8 13-13 21-19' fill='none' stroke='%23d28d68' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --paper:#f8f5ee;--paper-2:#eee9df;--card:#fffdf9;--ink:#30312d;--muted:#676158;
+      --sage:#718075;--sage-deep:#3d5148;--sage-pale:#e7ede7;--terra:#b87556;--terra-pale:#f4e6dd;
+      --line:#d9d2c6;--line-green:#007d3b;--shadow:0 22px 55px rgba(61,55,45,.11);
+      --serif:"Noto Serif JP","Yu Mincho",serif;--sans:"Noto Sans JP","Yu Gothic",sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;background:linear-gradient(90deg,rgba(61,81,72,.022) 1px,transparent 1px) 0 0/52px 52px,var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;font-weight:500}
+    a{color:inherit}
+    .wrap{width:min(760px,calc(100% - 34px));margin:auto}
+    .wide{width:min(1120px,calc(100% - 48px));margin:auto}
+    .eyebrow{font-size:.78rem;letter-spacing:.15em;font-weight:700;color:var(--sage-deep);text-transform:uppercase}
+    .eyebrow.steps-kicker{font-size:1rem}
 
-        <p class="lead">こんにちは。50代・独身・介護職のくみです。</p>
+    /* ===== header / タイトル ===== */
+    .hero{padding:24px 0 58px;overflow:hidden;background:radial-gradient(circle at 87% 7%,rgba(184,117,86,.18),transparent 29%),radial-gradient(circle at 4% 92%,rgba(61,81,72,.09),transparent 28%),linear-gradient(145deg,#fffdf9 0%,#f0ece3 100%)}
+    .hero-nav{display:flex;align-items:center;justify-content:center;margin-bottom:36px;padding-top:16px;border-top:1px dashed rgba(68,83,72,.28)}
+    .profile-link{display:grid;grid-template-columns:72px auto;gap:17px;align-items:center;padding:9px 15px;border-radius:18px;text-decoration:none;text-align:left;background:rgba(255,253,249,.72);border:1px solid rgba(61,81,72,.13);box-shadow:0 8px 28px rgba(61,55,45,.06);transition:.2s background-color,.2s transform}
+    .profile-link:hover{background:rgba(255,255,255,.85);transform:translateY(-1px)}
+    .profile-link:focus-visible{outline:3px solid #1a73e8;outline-offset:3px}
+    .profile-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid rgba(68,83,72,.18)}
+    .profile-copy{display:grid;line-height:1.5}
+    .profile-copy small{font-size:.78rem;color:var(--muted)}
+    .profile-copy strong{font-family:var(--serif);font-size:1.2rem}
+    .profile-copy span{font-size:.86rem;color:var(--sage-deep)}
+    .hero-title{max-width:820px;margin:0 auto;text-align:center}
+    .hero-title .eyebrow{display:inline-flex;align-items:center;gap:12px;justify-content:center}
+    .hero-title .eyebrow:before,.hero-title .eyebrow:after{content:"";width:26px;height:1px;background:var(--terra)}
+    h1,h2,h3{font-family:var(--serif);line-height:1.55;margin-top:0}
+    h1{font-size:clamp(2.15rem,4.6vw,3.35rem);line-height:1.48;letter-spacing:.015em;margin-bottom:0}
+    h1 em{font-style:normal;color:var(--terra);background:linear-gradient(transparent 70%,rgba(200,126,90,.16) 0)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:58px;padding:14px 25px;border-radius:999px;background:var(--line-green);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 24px rgba(0,125,59,.24);transition:.2s transform,.2s box-shadow;text-align:center}
+    .button:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,125,59,.3)}
+    .button:focus-visible,.copy:focus-visible{outline:3px solid #1a73e8;outline-offset:3px}
 
-        <figure>
-          <a class="visual-link" href="https://redirect-app-brown-psi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="特典を受け取る">
-            <img class="cta-image" src="https://inquisitive-link-d37.notion.site/image/attachment%3Ab56f6463-484b-420f-a7d4-943a82e656aa%3A4e861798-abb6-4096-b212-e8630c5bbc94.png?table=block&amp;id=403108a4-4a1d-4ec0-ad46-90b9cae8cbca&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIマネタイズの教科書 5大特典無料プレゼント">
-          </a>
-        </figure>
-        <p class="caption">タップで受け取れます👆</p>
+    /* ===== section basics ===== */
+    section{padding:70px 0}
+    .section-head{text-align:center;margin-bottom:38px}
+    .section-head .eyebrow{display:inline-flex;align-items:center;gap:10px}
+    .section-head .eyebrow:before,.section-head .eyebrow:after{content:"";width:22px;height:1px;background:currentColor;opacity:.5}
+    .section-head h2{font-size:clamp(1.65rem,5vw,2.25rem);margin:9px 0 14px}
+    .section-head p{color:var(--muted);margin:0}
+    .accent{color:var(--terra)}
 
-        <div class="section">
-          <p class="thanks">この特典を受け取ってくださり、<br><strong>本当にありがとうございます。</strong></p>
-          <p class="profile-copy">54歳からAIを学び始めた経験をもとに、<br>パソコンが苦手な50代女性へ、<br><strong>AIで副収入を得るための方法</strong>を<br>分かりやすく発信しています✨</p>
-        </div>
-      </header>
+    /* ===== 挨拶文 ===== */
+    .greeting{padding:16px 0 46px}
+    .greeting .section-head{margin-bottom:22px}
+    .greeting-text{font-family:var(--serif);font-size:1.15rem;line-height:2.05;text-align:center;color:var(--ink);max-width:640px;margin:0 auto;white-space:pre-line}
 
-      <div class="callout feature-callout">
-        <span class="symbol" aria-hidden="true">📖</span>
-        <p>ChatGPT・画像生成AI・Canva・Amazon KDPを使って、AI絵本を作成・販売するためのステップバイステップガイドです。</p>
-        <p>パソコンやAIが得意でなくても、一つずつ順番に進めながら、AI絵本販売に挑戦できます✨</p>
+    /* ===== 特典バナー（3箇所で共通） ===== */
+    .banner-section{padding:14px 0 50px}
+    .cta-banner-link{display:block;border-radius:20px;overflow:hidden;box-shadow:0 16px 38px rgba(97,66,50,.14);transition:.2s transform}
+    .cta-banner-link:hover{transform:translateY(-2px)}
+    .cta-banner-link:focus-visible{outline:3px solid #1a73e8;outline-offset:3px}
+    .cta-banner{display:block;width:100%;height:auto}
+
+    /* ===== お礼＋自己紹介 ===== */
+    .self-intro{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,0))}
+    .intro-grid{display:grid;grid-template-columns:160px 1fr;gap:32px;align-items:center}
+    .intro-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:48% 40%;border:3px solid rgba(68,83,72,.18);box-shadow:0 18px 36px rgba(61,55,45,.14);justify-self:center;filter:saturate(.9) contrast(.98)}
+    .intro-grid p{margin:0;color:var(--muted);line-height:1.95;white-space:pre-line}
+
+    /* ===== このLPの概要 ===== */
+    .overview p{color:var(--muted);text-align:center;max-width:640px;margin:0 auto;white-space:pre-line}
+    .overview .illustration{display:block;width:100%;max-width:640px;margin:26px auto 0;border-radius:20px;box-shadow:0 14px 34px rgba(61,55,45,.09)}
+    .hero-card{position:relative;margin-top:46px;display:grid;grid-template-columns:190px 1fr;align-items:center;gap:8px;padding:25px 30px;border-radius:26px;background:rgba(255,253,249,.86);border:1px solid var(--line);box-shadow:0 16px 42px rgba(61,55,45,.08)}
+    .hero-card:before{content:"";position:absolute;width:64px;height:22px;top:-11px;left:34px;background:rgba(184,117,86,.24);transform:rotate(-3deg)}
+    .hero-card h2{margin:0;padding-right:22px;font-size:1.28rem}
+    .mini-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+    .mini-step{display:grid;align-content:start;justify-items:center;gap:7px;min-height:116px;padding:8px 13px;text-align:center;background:transparent;border-left:1px solid var(--line);border-radius:0}
+    .mini-step b{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;margin:0;border-radius:50%;background:var(--sage-deep);color:#fff;font-size:.9rem}
+    .mini-step span{font-size:.8rem;line-height:1.65}
+
+    /* ===== ステップ形式 ===== */
+    .steps{background:radial-gradient(circle at 94% 2%,rgba(184,117,86,.08),transparent 18%),radial-gradient(circle at 3% 98%,rgba(61,81,72,.08),transparent 18%),var(--paper-2)}
+    .step{position:relative;overflow:hidden;background:var(--card);border:1px solid #d8d0c3;border-radius:30px;padding:42px 40px;margin-bottom:24px;box-shadow:0 13px 34px rgba(61,55,45,.07)}
+    .step[data-step]:before{content:attr(data-step);position:absolute;top:8px;right:24px;font-family:var(--serif);font-size:5.6rem;line-height:1;color:rgba(61,81,72,.055);font-weight:700;letter-spacing:-.08em}
+    .step>*{position:relative;z-index:1}
+    .step-label{display:inline-block;border-radius:999px;background:linear-gradient(135deg,var(--sage-deep),#586b61);color:#fff;padding:5px 16px;font-size:.79rem;font-weight:700;letter-spacing:.08em;box-shadow:0 6px 16px rgba(61,81,72,.15)}
+    .step h3{font-size:1.55rem;margin:14px 0 10px}
+    .step>p{color:var(--muted)}
+    .step .illustration{display:block;width:100%;border-radius:18px;margin:18px 0;box-shadow:0 10px 26px rgba(61,55,45,.08)}
+    .step .illustration-grid{display:grid;gap:14px;margin:18px 0}
+
+    .check-list{display:grid;gap:9px;padding:0;margin:22px 0;list-style:none}
+    .check-list li{position:relative;padding-left:31px}
+    .check-list li:before{content:"✓";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--sage-pale);color:var(--sage-deep);display:grid;place-items:center;font-size:.78rem;font-weight:700}
+
+    .prompt{position:relative;background:linear-gradient(145deg,#262a27,#343a35);color:#f9f7f1;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;margin-top:23px;box-shadow:0 14px 30px rgba(32,35,32,.15)}
+    .prompt:before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:0 3px 3px 0;background:var(--terra)}
+    .prompt-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}
+    .prompt-head b{font-size:.9rem;color:#dbe8d8}
+    .copy{border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;font:inherit;font-size:.78rem}
+    .prompt pre{white-space:pre-wrap;margin:0;font-family:var(--sans);font-size:.87rem;line-height:1.75;color:#f7f3e9}
+
+    /* 警告・注意書きは落ち着いたトーンに */
+    .note{margin-top:22px;border-left:3px solid rgba(184,117,86,.55);background:#f6efe8;padding:16px 18px;border-radius:0 12px 12px 0;color:var(--muted)}
+    .note b{color:#6a5a4c}
+    .rule{display:flex;gap:12px;align-items:flex-start;margin:18px 0;padding:16px 18px;border:1px solid #e6dccf;border-radius:14px;background:#f6f2ea}
+    .rule b{display:block;color:var(--sage-deep);font-size:.82rem;letter-spacing:.04em;margin-bottom:4px}
+    .rule p{margin:0;font-size:.89rem;line-height:1.7;color:var(--muted)}
+
+    .plain-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;margin-top:26px;box-shadow:0 7px 20px rgba(61,55,45,.035)}
+    .plain-box h3{font-size:1.35rem;margin-bottom:10px}
+    .plain-box p{margin:0;color:var(--muted)}
+    .plain-box .check-list{margin:14px 0 0}
+    .plain-box pre{white-space:pre-wrap;margin:14px 0 0;padding:16px 18px;background:var(--paper-2);border-radius:12px;font-family:var(--sans);font-size:.85rem;line-height:1.75;color:var(--ink)}
+
+    .source-links{margin-top:20px;font-size:.8rem;color:var(--muted)}
+    .source-links a{color:var(--sage-deep)}
+
+    /* ===== 表（リサーチ・トラブル対処表） ===== */
+    .table-wrap{margin:24px 0;overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+    table{width:100%;border-collapse:collapse;background:var(--card);font-size:.92rem}
+    th,td{padding:12px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{background:var(--paper-2);color:var(--sage-deep);font-weight:700}
+    tr:last-child td{border-bottom:0}
+
+    /* ===== 締めのMESSAGE ===== */
+    .closing-message{padding:20px 0 30px}
+    .completion{margin:0;padding:32px 34px;border-radius:24px;background:var(--sage-deep);color:#fff;text-align:center;box-shadow:0 20px 42px rgba(61,81,72,.18)}
+    .completion b{display:block;font-family:var(--serif);font-size:1.35rem}
+    .completion span{display:block;margin-top:8px;color:#e7ede5;font-size:.95rem}
+
+    /* ===== 最後のCTA ===== */
+    .cta{padding-top:10px}
+    .cta-card{position:relative;overflow:hidden;text-align:center;border-radius:30px;padding:52px 30px;background:radial-gradient(circle at 9% 12%,rgba(255,255,255,.7),transparent 28%),linear-gradient(145deg,#f6e9e1,#f1dfd4);border:1px solid #e8d2c6;box-shadow:0 24px 58px rgba(97,66,50,.11)}
+    .cta-card:before,.cta-card:after{content:"";position:absolute;border:1px solid rgba(184,117,86,.22);border-radius:50%}
+    .cta-card:before{width:180px;height:180px;left:-110px;top:-95px}
+    .cta-card:after{width:120px;height:120px;right:-72px;bottom:-58px}
+    .cta-card>*{position:relative;z-index:1}
+    .cta-card .cta-banner-link{margin:0 0 26px}
+    .cta-card p{color:var(--muted);margin:0 0 25px}
+    .cta-card .button{width:min(430px,100%)}
+    .fine{font-size:.75rem!important;margin-top:13px!important;color:#746d63!important}
+
+    /* ===== footer ===== */
+    footer{padding:42px 0 110px;text-align:center;color:var(--muted);font-size:.8rem}
+    .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:13px}
+    .sticky{display:none}
+
+    @media(max-width:760px){
+      body{font-size:16px}
+      .wide{width:min(100% - 28px,680px)}
+      .hero{padding:18px 0 48px}
+      .hero-nav{margin-bottom:28px;padding-top:14px}
+      .profile-link{grid-template-columns:62px auto;gap:13px;padding:8px;background:rgba(255,253,249,.78)}
+      .profile-photo{width:62px;height:62px}
+      .profile-copy small{font-size:.7rem}.profile-copy strong{font-size:1.08rem}.profile-copy span{font-size:.78rem}
+      .hero-title h1{font-size:clamp(1.72rem,7.6vw,2.05rem);line-height:1.52}
+      .hero-title .eyebrow:before,.hero-title .eyebrow:after{display:none}
+      section{padding:54px 0}
+      .greeting{padding:10px 0 36px}
+      .greeting-text{font-size:1.05rem}
+      .banner-section{padding:8px 0 38px}
+      .intro-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:20px}
+      .intro-photo{width:132px;height:132px}
+      .hero-card{grid-template-columns:1fr;gap:18px;margin-top:36px;padding:28px 20px}.hero-card:before{left:calc(50% - 32px)}.hero-card h2{padding:0;text-align:center}
+      .mini-flow{grid-template-columns:1fr;gap:8px}
+      .mini-step{display:flex;min-height:0;align-items:center;justify-items:initial;gap:13px;padding:12px 14px;text-align:left;background:var(--paper);border:0;border-radius:13px}
+      .mini-step b{flex:0 0 34px}.mini-step span{font-size:.88rem}
+      .step{padding:31px 22px;border-radius:24px}.step[data-step]:before{top:12px;right:16px;font-size:4.5rem}
+      .prompt-head{align-items:flex-start}.prompt pre{font-size:.82rem}
+      .plain-box{padding:24px 20px}
+      th,td{min-width:128px}
+      .completion{padding:26px 22px;border-radius:20px}
+      .cta-card{padding-left:16px;padding-right:16px;border-radius:26px}
+      .sticky{display:block;position:fixed;z-index:10;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(251,248,241,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+      .sticky .button{width:100%;min-height:52px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+  </style>
+</head>
+<body>
+  <!-- ===== 1. タイトル ===== -->
+  <header class="hero">
+    <div class="wide">
+      <div class="hero-nav">
+        <a class="profile-link" href="https://www.instagram.com/kumi_ai_fukugyo/" target="_blank" rel="noopener noreferrer" aria-label="くみのInstagramを開く">
+          <img class="profile-photo" src="./assets/kumi-profile.png" alt="くみ">
+          <span class="profile-copy"><small>54歳からのAI×おうちワーク</small><strong>くみ</strong><span>@kumi_ai_fukugyo</span></span>
+        </a>
       </div>
+      <div class="hero-title">
+        <p class="eyebrow">AI × 絵本 × Amazon KDP</p>
+        <h1>ChatGPTと画像生成AIで作る<br>Amazon絵本販売<br><em>完全ガイド</em></h1>
+      </div>
+    </div>
+  </header>
 
-      <section class="section">
-        <h2>📚 AI絵本販売とは</h2>
-        <p>AI絵本販売とは、ChatGPTで物語・イラストを作成し、Amazonで絵本として販売する方法です。</p>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A00830d8d-618b-4282-9157-7bf906a9a556%3A3ee170f5-9893-4ce5-af42-3b88e54807c3.png?table=block&amp;id=68d8a038-811e-41b6-b4ff-dce30e95ed74&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AI絵本販売のイメージ">
-        </figure>
-        <ul class="bullets">
-          <li>絵本のシナリオ作成にChatGPTを使える</li>
-          <li>イラストが描けなくても、画像生成AIで絵本風の画像を作れる</li>
-          <li>Canvaで文章と画像を配置して、絵本データを作れる</li>
-          <li>Amazon KDPを使えば、在庫を持たずに出版・販売できる</li>
-        </ul>
-        <div class="callout">
-          <span class="symbol" aria-hidden="true">🎀</span>
-          <p>印刷や発送はAmazon側で対応してくれるため、在庫リスクを抑えて始めやすいのがポイントです。</p>
+  <main>
+    <!-- ===== 2. 挨拶文 ===== -->
+    <section class="greeting">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">ごあいさつ</p>
         </div>
-      </section>
+        <p class="greeting-text">こんにちは。50代・独身・介護職のくみです。</p>
+      </div>
+    </section>
 
-      <section class="section overview-section">
-        <h2>🌷 全体の流れは簡単3ステップ</h2>
-        <ol class="steps">
-          <li>ChatGPTで絵本のシナリオを作る</li>
-          <li>画像生成AIでシーンごとのイラストを作る</li>
-          <li>Canvaで絵本データを作り、Amazonで販売する</li>
-        </ol>
-        <div class="callout purple">
-          <span class="symbol" aria-hidden="true">💡</span>
-          <p>最初から完璧な絵本を作ろうとしなくて大丈夫です。まずは短めの絵本を1冊作って、販売までの流れを体験してみましょう。</p>
+    <!-- ===== 3. 特典バナー（1箇所目） ===== -->
+    <section class="banner-section">
+      <div class="wrap">
+        <a class="cta-banner-link" href="https://l.instagram.com/?u=https%3A%2F%2Fx.gd%2Fz6wxZ%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadv6Qkf0Ni20N7fpsZ6ju0PdIx0p2n9ArFH2dHojEfPfW06xrp9on1eDLYLgw_aem_SQlPZX2KUUnmILGZzN5Gdg&e=AUCeqaY-q9jU0-YoD_egsAhDddqfeCn8bIb6ArJoY7AwpyyiFZAbgOYc_VIEy605nVvkO1-gEV_p2CZK5sSt2JuOAMOgWK9ms4TqpL8rYY-ni0I7ObOrtzXYKXD7b2rk3y9HjXAT6DTak0RbzaOa9zE" target="_blank" rel="noopener noreferrer">
+          <img class="cta-banner" src="./assets/free-gift-banner.png" alt="AI副業の完全ガイド 5大特典無料プレゼント">
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 4. お礼の一言＋自己紹介 ===== -->
+    <section class="self-intro">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">はじめまして</p>
+          <h2>AI初心者から絵本販売にチャレンジしています</h2>
         </div>
-      </section>
+        <div class="intro-grid">
+          <img class="intro-photo" src="./assets/kumi-profile.png" alt="くみのプロフィール写真">
+          <p>この特典を受け取ってくださり、
+本当にありがとうございます。
 
-      <section class="section step-section">
-        <h2>🤖 ステップ1：ChatGPTで絵本シナリオを作る</h2>
-        <p>まずは、ChatGPTにキャラクター設定、全14見開きのシナリオ、タイトル案を作ってもらいます。</p>
-        <p class="prompt-intro">「◯◯」の部分を自分の内容に書き換えて使ってください。</p>
-        <div class="prompt-tool">
-          <button class="copy-button" type="button" data-copy-target="story-prompt" aria-live="polite">
-            <span class="copy-label">プロンプトをコピー</span>
-          </button>
-          <details class="prompt-details">
-            <summary>プロンプトの内容を見る</summary>
-            <pre id="story-prompt" class="code-block">あなたは子どもたちの心を掴む、プロの絵本作家です。
+54歳からAIを学び始めた経験をもとに、
+パソコンが苦手な50代女性へ、
+AIで副収入を得るための方法を
+分かりやすく発信しています✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. このLPの概要 ===== -->
+    <section class="overview">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">このガイドについて</p>
+          <h2>AI絵本販売とは</h2>
+        </div>
+        <p>ChatGPT・画像生成AI・Canva・Amazon KDPを使って、AI絵本を作成・販売するためのステップバイステップガイドです。
+パソコンやAIが得意でなくても、一つずつ順番に進めながら、AI絵本販売に挑戦できます✨
+
+AI絵本販売とは、ChatGPTで物語・イラストを作成し、Amazonで絵本として販売する方法です。印刷や発送はAmazon側で対応してくれるため、在庫リスクを抑えて始めやすいのがポイントです。</p>
+        <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A00830d8d-618b-4282-9157-7bf906a9a556%3A3ee170f5-9893-4ce5-af42-3b88e54807c3.png?table=block&amp;id=68d8a038-811e-41b6-b4ff-dce30e95ed74&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AI絵本販売のイメージ">
+        <div class="hero-card" aria-label="このガイドで分かること">
+          <h2>このガイドで分かること</h2>
+          <div class="mini-flow">
+            <div class="mini-step"><b>1</b><span>ChatGPTで絵本のシナリオを作る</span></div>
+            <div class="mini-step"><b>2</b><span>画像生成用の英語プロンプトを作る</span></div>
+            <div class="mini-step"><b>3</b><span>ChatGPTでイラストを作る</span></div>
+            <div class="mini-step"><b>4</b><span>Canvaで絵本データを作る</span></div>
+            <div class="mini-step"><b>5</b><span>Amazonに出品する</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. 実際の説明（STEP形式） ===== -->
+    <section class="steps" id="guide">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow steps-kicker">STEPS</p>
+          <h2>作り方の5ステップ</h2>
+          <p>ChatGPTと画像生成AI、Canva、Amazon KDPを使って、実際に絵本を作って販売するまでの流れを解説します。</p>
+        </div>
+
+        <!-- 前提条件・準備 -->
+        <div class="step">
+          <h3>始める前に</h3>
+          <p>AI絵本販売とは、ChatGPTで物語・イラストを作成し、Amazonで絵本として販売する方法です。次のことができれば、誰でも挑戦できます。</p>
+          <ul class="check-list">
+            <li>絵本のシナリオ作成にChatGPTを使える</li>
+            <li>イラストが描けなくても、画像生成AIで絵本風の画像を作れる</li>
+            <li>Canvaで文章と画像を配置して、絵本データを作れる</li>
+            <li>Amazon KDPを使えば、在庫を持たずに出版・販売できる</li>
+          </ul>
+        </div>
+
+        <article class="step" data-step="01">
+          <span class="step-label">STEP 1</span>
+          <h3>ChatGPTで絵本シナリオを作る</h3>
+          <p>まずは、ChatGPTにキャラクター設定、全14見開きのシナリオ、タイトル案を作ってもらいます。「◯◯」の部分を自分の内容に書き換えて使ってください。</p>
+          <div class="prompt">
+            <div class="prompt-head"><b>絵本シナリオ作成プロンプト</b><button class="copy" type="button" data-copy="prompt1">コピーする</button></div>
+            <pre id="prompt1">あなたは子どもたちの心を掴む、プロの絵本作家です。
 以下の条件をもとに、絵本シナリオを1冊分作成してください。
 
 【入力情報】
@@ -118,37 +334,31 @@
 ■タイトル案（3つ）
 （内容に基づき、短く・響きが良く・子どもの記憶に残るタイトルを3案提示。それぞれ簡単な選定理由も添える）
 ※この3案以外に、自分で考えたタイトルを使いたい場合はその旨を伝えてください。</pre>
-          </details>
-        </div>
-        <p>シナリオができたら、3つの候補から使うタイトルを1つ決めます。自分で考えたタイトルを使っても大丈夫です。</p>
+          </div>
+          <p>シナリオができたら、3つの候補から使うタイトルを1つ決めます。自分で考えたタイトルを使っても大丈夫です。</p>
+          <div class="plain-box">
+            <h3>テーマ例</h3>
+            <p>迷ったときは、子どもや親が共感しやすいテーマを選ぶのがおすすめです。</p>
+            <ul class="check-list">
+              <li>初めてのおつかい</li>
+              <li>ひとりで眠る夜</li>
+              <li>お友だちとの仲直り</li>
+              <li>苦手な野菜にチャレンジ</li>
+              <li>大切なおもちゃとのお別れ</li>
+              <li>新しい保育園・幼稚園に行く日</li>
+            </ul>
+          </div>
+          <div class="note"><b>コツ：</b>「子どもの小さな悩み」×「かわいいキャラクター」×「前向きなメッセージ」にすると、絵本の方向性が決まりやすくなります。</div>
+        </article>
 
-        <h3>🌷 テーマ例</h3>
-        <p>迷ったときは、子どもや親が共感しやすいテーマを選ぶのがおすすめです。</p>
-        <ul class="bullets">
-          <li>初めてのおつかい</li>
-          <li>ひとりで眠る夜</li>
-          <li>お友だちとの仲直り</li>
-          <li>苦手な野菜にチャレンジ</li>
-          <li>大切なおもちゃとのお別れ</li>
-          <li>新しい保育園・幼稚園に行く日</li>
-        </ul>
-        <div class="callout green">
-          <span class="symbol" aria-hidden="true">✅</span>
-          <p>「子どもの小さな悩み」×「かわいいキャラクター」×「前向きなメッセージ」にすると、絵本の方向性が決まりやすくなります。</p>
-        </div>
-      </section>
-
-      <section class="section step-section">
-        <h2>🎨 ステップ2：画像生成用の英語プロンプトを作る</h2>
-        <p>シナリオとタイトルが決まったら、表紙と各見開きのイラストを作るための英語プロンプトをChatGPTに作ってもらいます。</p>
-        <p class="prompt-intro">下のボタンでコピーし、シナリオを作った同じチャットに送信してください。</p>
-        <div class="prompt-tool">
-          <button class="copy-button" type="button" data-copy-target="image-prompt" aria-live="polite">
-            <span class="copy-label">プロンプトをコピー</span>
-          </button>
-          <details class="prompt-details">
-            <summary>プロンプトの内容を見る</summary>
-            <pre id="image-prompt" class="code-block">上記で作成したキャラクター設定シートと絵本シナリオ（全14見開き）、および決定したタイトルをもとに、各見開きの挿絵を生成するための画像生成用プロンプトを、英語で作成してください。
+        <article class="step" data-step="02">
+          <span class="step-label">STEP 2</span>
+          <h3>画像生成用の英語プロンプトを作る</h3>
+          <p>シナリオとタイトルが決まったら、表紙と各見開きのイラストを作るための英語プロンプトをChatGPTに作ってもらいます。下のボタンでコピーし、シナリオを作った同じチャットに送信してください。</p>
+          <div class="note"><b>ポイント：</b>画像内に文字を入れると崩れやすいので、文章はCanvaであとから入れるのがおすすめです。</div>
+          <div class="prompt">
+            <div class="prompt-head"><b>画像生成プロンプト作成プロンプト</b><button class="copy" type="button" data-copy="prompt2">コピーする</button></div>
+            <pre id="prompt2">上記で作成したキャラクター設定シートと絵本シナリオ（全14見開き）、および決定したタイトルをもとに、各見開きの挿絵を生成するための画像生成用プロンプトを、英語で作成してください。
 
 【対象】
 ・表紙 1枚
@@ -169,188 +379,190 @@
 
 【出力形式】
 「表紙」「1見開き目」「2見開き目」…「14見開き目」の見出しをつけ、それぞれの直後に画像生成用プロンプト（英語）をコードブロックで記載してください。</pre>
-          </details>
-        </div>
-        <div class="callout">
-          <span class="symbol" aria-hidden="true">🎀</span>
-          <p>画像内に文字を入れると崩れやすいので、文章はCanvaであとから入れるのがおすすめです。</p>
-        </div>
+          </div>
+          <div class="plain-box">
+            <h3>画像生成プロンプトの例</h3>
+            <pre>A cute timid gray kitten wearing a tiny yellow scarf, standing in front of a small cozy bakery for the first time, looking nervous but curious, warm pastel colors, children's picture book illustration style, soft watercolor texture, gentle lighting, simple background, high quality, no text</pre>
+          </div>
+          <div class="rule">
+            <div><b>コツ</b><p>キャラクターの特徴は毎回同じ言葉で入れると、絵柄や見た目がブレにくくなります。例：gray kitten、tiny yellow scarf、soft watercolor texture など</p></div>
+          </div>
+        </article>
 
-        <h3>🌷 画像生成プロンプトの例</h3>
-        <pre class="code-block">A cute timid gray kitten wearing a tiny yellow scarf, standing in front of a small cozy bakery for the first time, looking nervous but curious, warm pastel colors, children's picture book illustration style, soft watercolor texture, gentle lighting, simple background, high quality, no text</pre>
-        <div class="callout purple">
-          <span class="symbol" aria-hidden="true">💡</span>
-          <p>キャラクターの特徴は毎回同じ言葉で入れると、絵柄や見た目がブレにくくなります。</p>
-          <p class="small">例：gray kitten、tiny yellow scarf、soft watercolor texture など</p>
-        </div>
-      </section>
+        <article class="step" data-step="03">
+          <span class="step-label">STEP 3</span>
+          <h3>ChatGPTでイラストを作る</h3>
+          <p>ChatGPTに英語プロンプトを1つずつ貼り付けて、表紙と各見開きのイラストを作成します。</p>
+          <ul class="check-list">
+            <li>ChatGPTを開く</li>
+            <li>まず、表紙用の英語プロンプトを貼り付ける</li>
+            <li>画像を生成してもらう</li>
+            <li>生成された画像を確認する</li>
+            <li>気に入った画像を保存する</li>
+            <li>1見開き目から14見開き目まで、英語プロンプトを1つずつ貼り付けてくり返す</li>
+          </ul>
+          <div class="note"><b>利用制限について：</b>作る画像は、表紙1枚と本編14見開き分の合計15枚です。無料プランでは画像生成に利用制限があります。15枚を一度に作れない場合は、時間を置いて続けるか、2日以上に分けて作成してください。まとめて作成したい場合は、有料プランも選択肢です。利用上限は変更される場合があるため、作成時にChatGPTの画面に表示される案内と、<a href="https://chatgpt.com/pricing/" target="_blank" rel="noopener noreferrer">ChatGPT公式のプラン案内</a>をご確認ください。</div>
+          <div class="illustration-grid">
+            <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A9e754354-8fff-483a-b225-ae556f38b370%3Af65bdc1a-e70f-4b64-b037-e4d49a71136a.png?table=block&amp;id=ee061fef-7af2-423d-a5ba-a70620eb86d6&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例1">
+            <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A05623325-1683-4f6c-8c79-0c9e25743347%3Ad79d8246-16b2-4901-b47e-c4bef424dfd2.png?table=block&amp;id=450fc200-4b90-415d-a346-61886d078263&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例2">
+            <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A05e79d65-c728-4f91-9b3b-77f3467e1fe0%3A5fec49ab-34a1-45ce-8eed-5a75738c0b27.png?table=block&amp;id=209d19c8-0a79-42a1-b775-bbd409a14439&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例3">
+          </div>
+          <div class="rule">
+            <div><b>確認ポイント</b><p>絵本に使う画像は、テイストがそろっていることが大切です。色味・キャラクター・背景の雰囲気がバラバラになっていないか確認しましょう。</p></div>
+          </div>
+        </article>
 
-      <section class="section step-section">
-        <h2>🖼️ ステップ3：ChatGPTでイラストを作る</h2>
-        <p>ChatGPTに英語プロンプトを1つずつ貼り付けて、表紙と各見開きのイラストを作成します。</p>
-        <ol class="steps">
-          <li>ChatGPTを開く</li>
-          <li>まず、表紙用の英語プロンプトを貼り付ける</li>
-          <li>画像を生成してもらう</li>
-          <li>生成された画像を確認する</li>
-          <li>気に入った画像を保存する</li>
-          <li>1見開き目から14見開き目まで、英語プロンプトを1つずつ貼り付けてくり返す</li>
-        </ol>
-        <div class="callout purple">
-          <span class="symbol" aria-hidden="true">💡</span>
-          <p>作る画像は、表紙1枚と本編14見開き分の合計15枚です。</p>
-          <p>無料プランでは画像生成に利用制限があります。15枚を一度に作れない場合は、時間を置いて続けるか、2日以上に分けて作成してください。まとめて作成したい場合は、有料プランも選択肢です。</p>
-          <p class="small">利用上限は変更される場合があるため、作成時にChatGPTの画面に表示される案内と、<a href="https://chatgpt.com/pricing/" target="_blank" rel="noopener noreferrer">ChatGPT公式のプラン案内</a>をご確認ください。</p>
-        </div>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A9e754354-8fff-483a-b225-ae556f38b370%3Af65bdc1a-e70f-4b64-b037-e4d49a71136a.png?table=block&amp;id=ee061fef-7af2-423d-a5ba-a70620eb86d6&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例1">
-        </figure>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A05623325-1683-4f6c-8c79-0c9e25743347%3Ad79d8246-16b2-4901-b47e-c4bef424dfd2.png?table=block&amp;id=450fc200-4b90-415d-a346-61886d078263&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例2">
-        </figure>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A05e79d65-c728-4f91-9b3b-77f3467e1fe0%3A5fec49ab-34a1-45ce-8eed-5a75738c0b27.png?table=block&amp;id=209d19c8-0a79-42a1-b775-bbd409a14439&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="AIで作成した絵本イラストの例3">
-        </figure>
-        <div class="callout green">
-          <span class="symbol" aria-hidden="true">✅</span>
-          <p>絵本に使う画像は、テイストがそろっていることが大切です。色味・キャラクター・背景の雰囲気がバラバラになっていないか確認しましょう。</p>
-        </div>
-      </section>
+        <article class="step" data-step="04">
+          <span class="step-label">STEP 4</span>
+          <h3>Canvaで絵本データを作る</h3>
+          <p>イラストがそろったら、Canvaで文章と画像を配置して絵本データを作ります。</p>
+          <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A50fedcfe-c7df-470d-8144-0523b8dfb0d6%3A62892564-5e62-4719-9131-197f7ff4efb2.png?table=block&amp;id=0ab220d0-2154-4974-a658-1e8f078675c8&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Canvaで絵本データを作る画面例">
+          <ul class="check-list">
+            <li>Canvaを開く</li>
+            <li>「絵本」「A4」「正方形」などでデザインを作成</li>
+            <li>画像を見開きごとに配置</li>
+            <li>ChatGPTで作った本文を入れる</li>
+            <li>フォント・余白・文字サイズを整える</li>
+            <li>表紙・裏表紙を作る</li>
+            <li>PDF形式でダウンロードする</li>
+          </ul>
+          <div class="rule">
+            <div><b>コツ</b><p>文字は大きめがおすすめです。対象年齢に合わせて、1見開きあたりの文章量と、声に出して読んだときのリズムを整えましょう。</p></div>
+          </div>
+          <div class="plain-box">
+            <h3>Canvaで作るときのポイント</h3>
+            <ul class="check-list">
+              <li>表紙はタイトルが一目で読めるようにする</li>
+              <li>本文ページは余白をしっかり取る</li>
+              <li>文字と背景の色が近すぎないようにする</li>
+              <li>ページごとにフォントや色を変えすぎない</li>
+              <li>印刷用PDFで書き出す</li>
+            </ul>
+          </div>
+          <div class="note"><b>注意：</b>Amazonにアップロードする場合は、サイズ・余白・塗り足しなどの指定があります。作成前に最新ルールを確認しておくと安心です。</div>
+        </article>
 
-      <section class="section step-section">
-        <h2>💻 ステップ4：Canvaで絵本データを作る</h2>
-        <p>イラストがそろったら、Canvaで文章と画像を配置して絵本データを作ります。</p>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A50fedcfe-c7df-470d-8144-0523b8dfb0d6%3A62892564-5e62-4719-9131-197f7ff4efb2.png?table=block&amp;id=0ab220d0-2154-4974-a658-1e8f078675c8&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Canvaで絵本データを作る画面例">
-        </figure>
-        <ol class="steps">
-          <li>Canvaを開く</li>
-          <li>「絵本」「A4」「正方形」などでデザインを作成</li>
-          <li>画像を見開きごとに配置</li>
-          <li>ChatGPTで作った本文を入れる</li>
-          <li>フォント・余白・文字サイズを整える</li>
-          <li>表紙・裏表紙を作る</li>
-          <li>PDF形式でダウンロードする</li>
-        </ol>
-        <div class="callout">
-          <span class="symbol" aria-hidden="true">✏️</span>
-          <p>文字は大きめがおすすめです。対象年齢に合わせて、1見開きあたりの文章量と、声に出して読んだときのリズムを整えましょう。</p>
-        </div>
+        <article class="step" data-step="05">
+          <span class="step-label">STEP 5</span>
+          <h3>Amazonに出品する</h3>
+          <p>絵本データが完成したら、Amazon KDPに登録して販売準備をします。</p>
+          <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A6b7adfb5-0dbe-4349-a1f5-c6f2778bade9%3A5381a028-85ca-44b2-bc32-aefc8f54b0ac.png?table=block&amp;id=a132caa8-5e44-460b-b847-042be972b5f1&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Amazon KDPへの出品画面例">
+          <ul class="check-list">
+            <li>Amazon KDPに登録・ログイン</li>
+            <li>「ペーパーバック」または「電子書籍」を選択</li>
+            <li>タイトル・著者名・説明文を入力</li>
+            <li>キーワードとカテゴリーを設定</li>
+            <li>原稿PDFと表紙データをアップロード</li>
+            <li>プレビューで表示崩れを確認</li>
+            <li>販売価格を設定</li>
+            <li>内容を確認して出版申請</li>
+          </ul>
+          <div class="note"><b>メリット：</b>Amazon KDPを使うと、注文が入ってから印刷・発送される仕組みを利用できます。自分で在庫を抱えなくていいので、初めての販売にも挑戦しやすいです。</div>
+        </article>
 
-        <h3>📘 Canvaで作るときのポイント</h3>
-        <ul class="bullets">
-          <li>表紙はタイトルが一目で読めるようにする</li>
-          <li>本文ページは余白をしっかり取る</li>
-          <li>文字と背景の色が近すぎないようにする</li>
-          <li>ページごとにフォントや色を変えすぎない</li>
-          <li>印刷用PDFで書き出す</li>
-        </ul>
-        <div class="callout purple">
-          <span class="symbol" aria-hidden="true">💡</span>
-          <p>Amazonにアップロードする場合は、サイズ・余白・塗り足しなどの指定があります。作成前に最新ルールを確認しておくと安心です。</p>
-        </div>
-      </section>
+        <article class="step" data-step="06">
+          <span class="step-label">STEP 6</span>
+          <h3>売れやすくするコツ</h3>
+          <ul class="check-list">
+            <li>親が子どもに読ませたいテーマを選ぶ</li>
+            <li>表紙で「どんな絵本か」が一瞬で伝わるようにする</li>
+            <li>タイトルには検索されやすい言葉を入れる</li>
+            <li>対象年齢を説明文に入れる</li>
+            <li>レビューが多い絵本をリサーチして、表紙・タイトル・テーマの共通点を見る</li>
+            <li>シリーズ化できるキャラクターを作る</li>
+          </ul>
+        </article>
 
-      <section class="section step-section">
-        <h2>🛒 ステップ5：Amazonに出品する</h2>
-        <p>絵本データが完成したら、Amazon KDPに登録して販売準備をします。</p>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A6b7adfb5-0dbe-4349-a1f5-c6f2778bade9%3A5381a028-85ca-44b2-bc32-aefc8f54b0ac.png?table=block&amp;id=a132caa8-5e44-460b-b847-042be972b5f1&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Amazon KDPへの出品画面例">
-        </figure>
-        <ol class="steps">
-          <li>Amazon KDPに登録・ログイン</li>
-          <li>「ペーパーバック」または「電子書籍」を選択</li>
-          <li>タイトル・著者名・説明文を入力</li>
-          <li>キーワードとカテゴリーを設定</li>
-          <li>原稿PDFと表紙データをアップロード</li>
-          <li>プレビューで表示崩れを確認</li>
-          <li>販売価格を設定</li>
-          <li>内容を確認して出版申請</li>
-        </ol>
-        <div class="callout">
-          <span class="symbol" aria-hidden="true">🎀</span>
-          <p>Amazon KDPを使うと、注文が入ってから印刷・発送される仕組みを利用できます。自分で在庫を抱えなくていいので、初めての販売にも挑戦しやすいです。</p>
-        </div>
-      </section>
+        <article class="step" data-step="07">
+          <span class="step-label">STEP 7</span>
+          <h3>リサーチするときの見方</h3>
+          <p>Amazonで似たジャンルの絵本を見つけたら、以下をチェックします。</p>
+          <img class="illustration" src="https://inquisitive-link-d37.notion.site/image/attachment%3A00830d8d-618b-4282-9157-7bf906a9a556%3A3ee170f5-9893-4ce5-af42-3b88e54807c3.png?table=block&amp;id=3bf41132-38fb-8098-9495-f781ee1515b4&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Amazonで絵本をリサーチする画面例">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>見るところ</th><th>チェック内容</th></tr></thead>
+              <tbody>
+                <tr><td>価格</td><td>いくらで販売されているか</td></tr>
+                <tr><td>レビュー数</td><td>どれくらい購入・反応がありそうか</td></tr>
+                <tr><td>表紙</td><td>どんな色・構図・キャラクターか</td></tr>
+                <tr><td>タイトル</td><td>検索されそうな言葉が入っているか</td></tr>
+                <tr><td>説明文</td><td>どんな悩みやニーズに向けているか</td></tr>
+                <tr><td>対象年齢</td><td>何歳向けとして販売しているか</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
 
-      <section class="section">
-        <h2>💡 売れやすくするコツ</h2>
-        <ul class="bullets">
-          <li>親が子どもに読ませたいテーマを選ぶ</li>
-          <li>表紙で「どんな絵本か」が一瞬で伝わるようにする</li>
-          <li>タイトルには検索されやすい言葉を入れる</li>
-          <li>対象年齢を説明文に入れる</li>
-          <li>レビューが多い絵本をリサーチして、表紙・タイトル・テーマの共通点を見る</li>
-          <li>シリーズ化できるキャラクターを作る</li>
-        </ul>
-      </section>
+        <article class="step" data-step="08">
+          <span class="step-label">STEP 8</span>
+          <h3>うまくいかないときは</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>困ったこと</th><th>対処法</th></tr></thead>
+              <tbody>
+                <tr><td>物語がありきたりになる</td><td>テーマ・キャラクター・伝えたい想いを具体的にする</td></tr>
+                <tr><td>キャラクターの見た目が毎回変わる</td><td>特徴を英語で固定して、毎回同じ表現を入れる</td></tr>
+                <tr><td>画像に文字が入ってしまう</td><td>プロンプトに「no text」を入れる</td></tr>
+                <tr><td>絵柄がバラバラになる</td><td>色味・画風・質感を毎回同じ言葉で指定する</td></tr>
+                <tr><td>Canvaで文字が読みにくい</td><td>背景を少し明るくする／文字に白フチをつける</td></tr>
+                <tr><td>KDPでエラーが出る</td><td>サイズ・余白・塗り足し・PDF形式を見直す</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <section class="section">
-        <h2>🔍 リサーチするときの見方</h2>
-        <p>Amazonで似たジャンルの絵本を見つけたら、以下をチェックします。</p>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3A00830d8d-618b-4282-9157-7bf906a9a556%3A3ee170f5-9893-4ce5-af42-3b88e54807c3.png?table=block&amp;id=3bf41132-38fb-8098-9495-f781ee1515b4&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="Amazonで絵本をリサーチする画面例">
-        </figure>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>見るところ</th><th>チェック内容</th></tr></thead>
-            <tbody>
-              <tr><td>価格</td><td>いくらで販売されているか</td></tr>
-              <tr><td>レビュー数</td><td>どれくらい購入・反応がありそうか</td></tr>
-              <tr><td>表紙</td><td>どんな色・構図・キャラクターか</td></tr>
-              <tr><td>タイトル</td><td>検索されそうな言葉が入っているか</td></tr>
-              <tr><td>説明文</td><td>どんな悩みやニーズに向けているか</td></tr>
-              <tr><td>対象年齢</td><td>何歳向けとして販売しているか</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+    <!-- ===== 7. 特典バナー（2箇所目） ===== -->
+    <section class="banner-section">
+      <div class="wrap">
+        <a class="cta-banner-link" href="https://l.instagram.com/?u=https%3A%2F%2Fx.gd%2Fz6wxZ%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadv6Qkf0Ni20N7fpsZ6ju0PdIx0p2n9ArFH2dHojEfPfW06xrp9on1eDLYLgw_aem_SQlPZX2KUUnmILGZzN5Gdg&e=AUCeqaY-q9jU0-YoD_egsAhDddqfeCn8bIb6ArJoY7AwpyyiFZAbgOYc_VIEy605nVvkO1-gEV_p2CZK5sSt2JuOAMOgWK9ms4TqpL8rYY-ni0I7ObOrtzXYKXD7b2rk3y9HjXAT6DTak0RbzaOa9zE" target="_blank" rel="noopener noreferrer">
+          <img class="cta-banner" src="./assets/free-gift-banner.png" alt="AI副業の完全ガイド 5大特典無料プレゼント">
+        </a>
+      </div>
+    </section>
 
-      <section class="section">
-        <h2>❓ うまくいかないときは</h2>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>困ったこと</th><th>対処法</th></tr></thead>
-            <tbody>
-              <tr><td>物語がありきたりになる</td><td>テーマ・キャラクター・伝えたい想いを具体的にする</td></tr>
-              <tr><td>キャラクターの見た目が毎回変わる</td><td>特徴を英語で固定して、毎回同じ表現を入れる</td></tr>
-              <tr><td>画像に文字が入ってしまう</td><td>プロンプトに「no text」を入れる</td></tr>
-              <tr><td>絵柄がバラバラになる</td><td>色味・画風・質感を毎回同じ言葉で指定する</td></tr>
-              <tr><td>Canvaで文字が読みにくい</td><td>背景を少し明るくする／文字に白フチをつける</td></tr>
-              <tr><td>KDPでエラーが出る</td><td>サイズ・余白・塗り足し・PDF形式を見直す</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+    <!-- ===== 8. 締めのMESSAGE ===== -->
+    <section class="closing-message">
+      <div class="wrap">
+        <div class="completion"><b>ここまで読んでくださり、ありがとうございます。</b><span>まずは一冊、絵本づくりから始めてみましょう✨</span></div>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="callout green">
-          <span class="symbol" aria-hidden="true">🎉</span>
-          <p>AI絵本販売は、文章づくり・画像生成・デザインを組み合わせて挑戦できる副業アイデアのひとつです。</p>
-          <p>まずは短い1冊を作って、Amazonに出品する流れを体験してみましょう✨</p>
-        </div>
-
-        <p class="center"><strong>ここまで読んでくださり、ありがとうございます。</strong></p>
-        <div class="closing-copy">
-          <p>「自分にもできるかな…」<br>「何から始めればいいのかな…」</p>
-          <p><strong>そんな方のために。</strong></p>
-        </div>
-
-        <figure>
-          <a class="visual-link" href="https://redirect-app-brown-psi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="5大特典を無料で受け取る">
-            <img class="cta-image" src="https://inquisitive-link-d37.notion.site/image/attachment%3A350f07dd-c325-46e3-8a13-0fde23e1d3a0%3A8aa4445d-422a-4b4d-836e-33d2829c587c.png?table=block&amp;id=966290c4-9cd3-4f92-bb14-5257cb4faadf&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="期間限定 5大特典無料プレゼント">
+    <!-- ===== 9. 特典バナー（3箇所目・最後のCTA） ===== -->
+    <section class="cta" id="present">
+      <div class="wrap">
+        <div class="cta-card">
+          <a class="cta-banner-link" href="https://l.instagram.com/?u=https%3A%2F%2Fx.gd%2Fz6wxZ%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadv6Qkf0Ni20N7fpsZ6ju0PdIx0p2n9ArFH2dHojEfPfW06xrp9on1eDLYLgw_aem_SQlPZX2KUUnmILGZzN5Gdg&e=AUCeqaY-q9jU0-YoD_egsAhDddqfeCn8bIb6ArJoY7AwpyyiFZAbgOYc_VIEy605nVvkO1-gEV_p2CZK5sSt2JuOAMOgWK9ms4TqpL8rYY-ni0I7ObOrtzXYKXD7b2rk3y9HjXAT6DTak0RbzaOa9zE" target="_blank" rel="noopener noreferrer">
+            <img class="cta-banner" src="./assets/free-gift-banner.png" alt="AI副業の完全ガイド 5大特典無料プレゼント">
           </a>
-        </figure>
-        <figure>
-          <img class="visual" src="https://inquisitive-link-d37.notion.site/image/attachment%3Aa53e584e-42b7-453a-9c9e-088c50df7142%3A965ff00c-d9fc-4f18-b4ca-f131062fc684.png?table=block&amp;id=d301e962-2b67-4fc7-8c44-8d7940cd9945&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="無料プレゼント5大特典の内容">
-        </figure>
-        <p class="center">AIで副収入を得ることに興味はあるけれど、何から始めればいいか分からない方へ。<br>まずは一つずつ、一緒に進めてみませんか。</p>
-        <figure>
-          <a class="visual-link" href="https://redirect-app-brown-psi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="特典を受け取る">
-            <img class="cta-image" src="https://inquisitive-link-d37.notion.site/image/attachment%3A4f009168-5f1b-4acf-9e76-c3b61dde2e84%3A1b82d0af-6408-4112-b10a-da6ea61b8394.png?table=block&amp;id=79cfd8d0-e26f-49af-a951-c94f36bc3b41&amp;spaceId=83c41132-38fb-814e-90da-00036f280768&amp;width=2000&amp;userId=&amp;cache=v2&amp;imgBuildSrc=requestProxiedImageUrl" alt="ここをタップで特典を受け取り">
-          </a>
-        </figure>
-      </section>
-    </main>
-  </body>
+          <p>AIで副収入を得ることに興味はあるけれど、何から始めればいいか分からない方へ。まずは一つずつ、一緒に進めてみませんか。</p>
+          <a class="button" href="https://l.instagram.com/?u=https%3A%2F%2Fx.gd%2Fz6wxZ%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadv6Qkf0Ni20N7fpsZ6ju0PdIx0p2n9ArFH2dHojEfPfW06xrp9on1eDLYLgw_aem_SQlPZX2KUUnmILGZzN5Gdg&e=AUCeqaY-q9jU0-YoD_egsAhDddqfeCn8bIb6ArJoY7AwpyyiFZAbgOYc_VIEy605nVvkO1-gEV_p2CZK5sSt2JuOAMOgWK9ms4TqpL8rYY-ni0I7ObOrtzXYKXD7b2rk3y9HjXAT6DTak0RbzaOa9zE" target="_blank" rel="noopener noreferrer">5大特典を無料で受け取る</a>
+          <p class="fine">※特典の内容・提供期間は変更・終了する場合があります。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-links"><a href="https://www.instagram.com/kumi_ai_fukugyo/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+      <p>本ページは学習・情報提供を目的としたものです。成果には個人差があり、収益・表示回数・購入を保証するものではありません。商品情報や各サービスの規約は変更される場合があるため、実践時に公式情報をご確認ください。</p>
+      <p>© 2026 Kumi</p>
+    </div>
+  </footer>
+
+  <div class="sticky"><a class="button" href="https://l.instagram.com/?u=https%3A%2F%2Fx.gd%2Fz6wxZ%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadv6Qkf0Ni20N7fpsZ6ju0PdIx0p2n9ArFH2dHojEfPfW06xrp9on1eDLYLgw_aem_SQlPZX2KUUnmILGZzN5Gdg&e=AUCeqaY-q9jU0-YoD_egsAhDddqfeCn8bIb6ArJoY7AwpyyiFZAbgOYc_VIEy605nVvkO1-gEV_p2CZK5sSt2JuOAMOgWK9ms4TqpL8rYY-ni0I7ObOrtzXYKXD7b2rk3y9HjXAT6DTak0RbzaOa9zE" target="_blank" rel="noopener noreferrer">5大特典を無料で受け取る</a></div>
+  <script>
+    document.querySelectorAll('[data-copy]').forEach(function(button){
+      button.addEventListener('click',function(){
+        var target=document.getElementById(button.dataset.copy);
+        navigator.clipboard.writeText(target.innerText).then(function(){
+          var old=button.textContent;button.textContent='コピーしました';
+          setTimeout(function(){button.textContent=old},1800);
+        });
+      });
+    });
+  </script>
+</body>
 </html>
