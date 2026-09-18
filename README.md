@@ -13,7 +13,7 @@ Amazon絵本販売のやりかたを紹介するLP。
 - `notes.md` … 構成・アイデアメモ
 
 ## 公開先URL
-- (公開したらここに記載)
+- https://kumi-ai-picture-book-guide.r-k-millie.chatgpt.site/
 
 ## 編集ルール
 - 本文はMarkdownで管理し、Claude Code / Codexどちらで編集してもOK
