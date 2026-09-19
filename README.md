@@ -5,17 +5,16 @@ Amazon絵本販売のやりかたを紹介するLP。
 
 ## ステータス
 - 進行中
-- 最終更新日:2026-09-18
+- 最終更新日:2026-09-19
 
 ## ファイル構成
-- `index.md` … LP本文(Markdown管理)
+- `index.html` … LP本体(CSS・JSも1ファイルに内包)
 - `assets/` … 画像素材
-- `notes.md` … 構成・アイデアメモ
 
 ## 公開先URL
-- https://kumi-ai-picture-book-guide.r-k-millie.chatgpt.site/
-- ステータス:現在非公開(使用時に公開へ切り替え)
+- https://ryooh18-byte.github.io/ehon-amazon-lp/
+- ステータス:公開中(GitHub Pages / `main`ブランチのルートから自動公開。`git push`後1〜2分で反映)
 
 ## 編集ルール
-- 本文はMarkdownで管理し、Claude Code / Codexどちらで編集してもOK
+- 本文は `index.html` で管理し、Claude Code / Codexどちらで編集してもOK
 - 作業前に必ず `git pull`、作業後は `git commit -m "内容"` → `git push`# ehon-amazon-lp
